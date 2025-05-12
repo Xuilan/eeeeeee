@@ -60,6 +60,11 @@
             console.log('Данные успешно отправлены и приложение закрывается');
             document.getElementById('status').innerText = 'Данные успешно отправлены!';
         });
+
+        tg?.onEvent('webAppDataSendError', (error) => {
+            console.error('Ошибка отправки данных:', error);
+            document.getElementById('status').innerText = 'Ошибка отправки данных: ' + error.message;
+        });
     </script>
 </body>
 </html>
