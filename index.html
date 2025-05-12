@@ -6,64 +6,62 @@
     <title>Telegram Web App Example</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            padding: 20px; 
-            background-color: #f0f0f0; 
-        }
-        button { 
-            padding: 10px 20px; 
-            font-size: 16px; 
-            background-color: #0088cc; 
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-        }
-        button:hover { 
-            background-color: #006bb3; 
-        }
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f0f0f0; }
+        button { padding: 10px 20px; font-size: 16px; background-color: #0088cc; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #006bb3; }
     </style>
 </head>
 <body>
     <h1>Telegram Web App</h1>
     <p>Привет, <span id="user-name">пользователь</span>!</p>
     <button id="sendButton">Отправить данные в бот</button>
+    <p id="status"></p>
 
     <script>
         // Инициализация Telegram Web App
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-
-        // Получение данных пользователя
-        const user = tg.initDataUnsafe.user;
-        if (user) {
-            document.getElementById('user-name').innerText = user.first_name || 'пользователь';
+        console.log('Инициализация Telegram WebApp...');
+        const tg = window.Telegram?.WebApp;
+        if (!tg) {
+            document.getElementById('status').innerText = 'Ошибка: Telegram WebApp не загружен.';
+            console.error('Telegram WebApp не доступен');
         } else {
-            console.log('Пользователь не определен');
+            console.log('Telegram WebApp инициализирован');
+            tg.ready();
         }
 
-        // Обработчик кнопки с отладкой
+        // Получение данных пользователя
+        const user = tg?.initDataUnsafe?.user;
+        if (user) {
+            document.getElementById('user-name').innerText = user.first_name || 'пользователь';
+            console.log('Пользователь:', user);
+        } else {
+            console.log('Данные пользователя не найдены');
+        }
+
+        // Обработчик кнопки
         document.getElementById('sendButton').addEventListener('click', function() {
-            console.log('Кнопка нажата, подготовка к отправке данных...');
+            console.log('Кнопка нажата');
             if (tg) {
                 try {
+                    document.getElementById('status').innerText = 'Отправка данных...';
                     tg.sendData("Привет от веб-приложения!");
-                    console.log('Данные отправлены: Привет от веб-приложения!');
+                    console.log('Данные отправлены:', "Привет от веб-приложения!");
+                    document.getElementById('status').innerText = 'Данные отправлены!';
                     tg.close();
                 } catch (error) {
-                    console.error('Ошибка при отправке данных:', error);
+                    console.error('Ошибка отправки:', error);
+                    document.getElementById('status').innerText = 'Ошибка: ' + error.message;
                     alert('Ошибка при отправке данных. Проверьте консоль.');
                 }
             } else {
                 console.error('Telegram WebApp не инициализирован');
+                document.getElementById('status').innerText = 'Ошибка: Telegram WebApp не работает.';
                 alert('Telegram WebApp не работает. Проверьте подключение.');
             }
         });
 
         // Обработчик успешной отправки
-        tg.onEvent('webAppDataSent', () => {
+        tg?.onEvent('webAppDataSent', () => {
             console.log('Данные успешно отправлены и приложение закрывается');
         });
     </script>
