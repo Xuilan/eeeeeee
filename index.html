@@ -1,70 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Web App Example</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f0f0f0; }
-        button { padding: 10px 20px; font-size: 16px; background-color: #0088cc; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #006bb3; }
-    </style>
+    <title>Case Battle - Апгрейд</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Add a favicon -->
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
 </head>
 <body>
-    <h1>Telegram Web App</h1>
-    <p>Привет, <span id="user-name">пользователь</span>!</p>
-    <button id="sendButton">Отправить данные в бот</button>
-    <p id="status"></p>
 
-    <script>
-        console.log('Инициализация Telegram WebApp...');
-        const tg = window.Telegram?.WebApp;
-        if (!tg) {
-            document.getElementById('status').innerText = 'Ошибка: Telegram WebApp не загружен.';
-            console.error('Telegram WebApp не доступен');
-        } else {
-            console.log('Telegram WebApp инициализирован');
-            tg.ready();
-        }
+    <div class="app-container">
 
-        const user = tg?.initDataUnsafe?.user;
-        if (user) {
-            document.getElementById('user-name').innerText = user.first_name || 'пользователь';
-            console.log('Пользователь:', user);
-        } else {
-            console.log('Данные пользователя не найдены');
-        }
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <!-- Placeholder for logo -->
+                    <h1>CASE BATTLE</h1>
+                    <p>CS:GO - У нас выигрывают</p>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#" class="active">▲ АПГРЕЙД</a></li>
+                        <li><a href="#">✉️ КОНТРАКТЫ</a></li>
+                        <li><a href="#">❓ ВОПРОС - ОТВЕТ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="online-count">
+                    <span class="icon">🌐</span> ОНЛАЙН: <span class="count">1235</span>
+                </div>
+                <div class="user-info">
+                    <img src="placeholder-avatar.png" alt="User Avatar" class="user-avatar">
+                    <div class="user-details">
+                        <p>Привет,</p>
+                        <p>USP</p>
+                        <p>На счете: <span class="user-balance">54.00 ₽</span></p>
+                    </div>
+                    <span class="balance-plus">+</span>
+                </div>
+            </div>
+        </header>
 
-        document.getElementById('sendButton').addEventListener('click', function() {
-            console.log('Кнопка нажата');
-            if (tg) {
-                try {
-                    document.getElementById('status').innerText = 'Отправка данных...';
-                    tg.sendData("Привет от веб-приложения!");
-                    console.log('Данные отправлены:', "Привет от веб-приложения!");
-                    document.getElementById('status').innerText = 'Данные отправлены!';
-                } catch (error) {
-                    console.error('Ошибка отправки:', error);
-                    document.getElementById('status').innerText = 'Ошибка: ' + error.message;
-                    alert('Ошибка при отправке данных. Проверьте консоль.');
-                }
-            } else {
-                console.error('Telegram WebApp не инициализирован');
-                document.getElementById('status').innerText = 'Ошибка: Telegram WebApp не работает.';
-                alert('Telegram WebApp не работает. Проверьте подключение.');
-            }
-        });
+        <main class="main-content">
 
-        tg?.onEvent('webAppDataSent', () => {
-            console.log('Данные успешно отправлены и приложение закрывается');
-            document.getElementById('status').innerText = 'Данные успешно отправлены!';
-        });
+            <div class="promo-banner">
+                <div class="promo-left">
+                    <div class="promo-badge">
+                        +17%<br>НА СЧЕТ
+                    </div>
+                    <p class="promo-text">Правила игры</p>
+                </div>
+                <div class="promo-center">
+                    <div class="promo-code-area">
+                         <span class="promo-label">ИСПОЛЬЗУЙ ПРОМОКОД:</span>
+                         <span class="promo-code">CB-8817</span>
+                    </div>
+                    <h2 class="site-slogan">Биг-Балик</h2>
+                    <!-- Placeholder for additional banner text/graphics if any -->
+                </div>
+                <div class="promo-right">
+                    <div class="timer">
+                         осталось <span class="time-value">6444</span> из <span class="time-total">8000</span>
+                    </div>
+                </div>
+            </div>
 
-        tg?.onEvent('webAppDataSendError', (error) => {
-            console.error('Ошибка отправки данных:', error);
-            document.getElementById('status').innerText = 'Ошибка отправки данных: ' + error.message;
-        });
-    </script>
+            <section class="upgrade-section">
+                <div class="upgrade-column select-input-item">
+                    <h3 class="column-title">
+                        <span class="icon">👇</span> Выберите оружие,<br>которое хотите улучшить
+                    </h3>
+                    <div class="item-card selected-input-item">
+                        <img src="placeholder-mp9.png" alt="MP9 Воздушный шлюз" class="item-image">
+                        <div class="item-details">
+                            <p class="item-name">MP9</p>
+                            <p class="item-description">Воздушный шлюз</p>
+                        </div>
+                        <span class="item-price">115.8 ₽</span>
+                    </div>
+                    <!-- Placeholder for list of inventory items to choose from -->
+                    <!-- This list would likely be populated by JS based on user inventory -->
+                    <div class="inventory-items-list">
+                        <!-- Item cards would go here -->
+                        <!-- Example:
+                        <div class="item-card small">
+                            <img src="..." alt="..." class="item-image-small">
+                            <div class="item-details-small">
+                                <p class="item-name-small">Glock-18</p>
+                                <p class="item-description-small">Дальний свет</p>
+                            </div>
+                            <span class="item-price-small">38.2 ₽</span>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <div class="upgrade-column upgrade-core">
+                    <div class="chance-meter">
+                        <!-- Placeholder for the circular meter -->
+                        <div class="chance-circle">
+                            <span class="percentage">2.52%</span>
+                            <p class="chance-text">крайне низкий шанс</p>
+                            <!-- Visual elements for the circle/progress would be done with CSS/SVG -->
+                        </div>
+                    </div>
+                    <button class="upgrade-button">ПРОКАЧАТЬ!</button>
+                    <div class="upgrade-cost">
+                        <!-- This might show the cost calculation -->
+                    </div>
+                </div>
+
+                <div class="upgrade-column select-output-item">
+                    <h3 class="column-title">
+                        <span class="icon">👇</span> Выберите оружие,<br>которое хотите получить
+                    </h3>
+                    <div class="item-card selected-output-item">
+                         <!-- Rarity Star Icon -->
+                        <span class="rarity-star">★</span>
+                        <img src="placeholder-gloves.png" alt="Водительские перчатки" class="item-image">
+                        <div class="item-details">
+                            <p class="item-name">Водительские перчатки</p>
+                            <p class="item-description">Гоночный зелёный</p>
+                        </div>
+                        <span class="item-price">4738.9 ₽</span>
+                    </div>
+                    <!-- Placeholder for list of target items to choose from -->
+                    <!-- This list would likely be populated by JS from market data -->
+                    <div class="target-items-list">
+                        <!-- Item cards would go here -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="inventory-section">
+                <h3>МОИ ПРЕДМЕТЫ (6)</h3>
+                <div class="item-list inventory-list">
+                    <!-- Placeholder for inventory items -->
+                    <!-- Example item card -->
+                    <div class="item-card small">
+                        <img src="placeholder-aug.png" alt="AUG Аристократ" class="item-image-small">
+                        <div class="item-details-small">
+                            <p class="item-name-small">AUG</p>
+                            <p class="item-description-small">Аристократ</p>
+                        </div>
+                        <span class="item-price-small">38.2 ₽</span>
+                    </div>
+                     <div class="item-card small">
+                        <img src="placeholder-mp9.png" alt="MP9 Воздушный шлюз" class="item-image-small">
+                        <div class="item-details-small">
+                            <p class="item-name-small">MP9</p>
+                            <p class="item-description-small">Воздушный шлюз</p>
+                        </div>
+                        <span class="item-price-small">115.8 ₽</span>
+                    </div>
+                    <!-- Add more inventory items as needed -->
+                </div>
+            </section>
+
+            <section class="marketplace-section">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label for="rarity-filter">Редкость</label>
+                        <select id="rarity-filter">
+                            <option value="">Все</option>
+                            <!-- Add rarity options -->
+                        </select>
+                    </div>
+                     <div class="filter-group">
+                        <label for="price-filter-from">Цена</label>
+                        <input type="number" id="price-filter-from" value="0" placeholder="от" class="price-input">
+                        <span>₽ до</span>
+                        <input type="number" id="price-filter-to" value="4000" placeholder="до" class="price-input">
+                        <span>₽</span>
+                        <button class="search-button">🔍</button>
+                    </div>
+                    <!-- Add more filter options like sort etc. -->
+                     <div class="filter-group">
+                         <button>Цена <span class="sort-icon">⇅</span></button>
+                         <!-- Add other sort buttons -->
+                     </div>
+                </div>
+                <div class="item-list marketplace-list">
+                    <!-- Placeholder for marketplace items -->
+                    <!-- Example item card -->
+                     <div class="item-card small">
+                         <!-- Rarity Star Icon -->
+                        <span class="rarity-star">★</span>
+                        <img src="placeholder-awp.png" alt="StatTrak™ AWP" class="item-image-small">
+                        <div class="item-details-small">
+                            <p class="item-name-small">StatTrak™ AWP</p>
+                            <p class="item-description-small">Распространение</p>
+                        </div>
+                        <span class="item-price-small">4699 ₽</span>
+                    </div>
+                    <!-- Add more marketplace items as needed -->
+                </div>
+            </section>
+
+        </main>
+
+        <!-- You might have a footer or other elements here -->
+
+    </div>
+
+    <!-- Telegram Web App script -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Link to your JavaScript file for logic -->
+    <script src="script.js"></script>
 </body>
 </html>
