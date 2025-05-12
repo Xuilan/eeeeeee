@@ -18,7 +18,6 @@
     <p id="status"></p>
 
     <script>
-        // Инициализация Telegram Web App
         console.log('Инициализация Telegram WebApp...');
         const tg = window.Telegram?.WebApp;
         if (!tg) {
@@ -29,7 +28,6 @@
             tg.ready();
         }
 
-        // Получение данных пользователя
         const user = tg?.initDataUnsafe?.user;
         if (user) {
             document.getElementById('user-name').innerText = user.first_name || 'пользователь';
@@ -38,7 +36,6 @@
             console.log('Данные пользователя не найдены');
         }
 
-        // Обработчик кнопки
         document.getElementById('sendButton').addEventListener('click', function() {
             console.log('Кнопка нажата');
             if (tg) {
@@ -47,7 +44,6 @@
                     tg.sendData("Привет от веб-приложения!");
                     console.log('Данные отправлены:', "Привет от веб-приложения!");
                     document.getElementById('status').innerText = 'Данные отправлены!';
-                    tg.close();
                 } catch (error) {
                     console.error('Ошибка отправки:', error);
                     document.getElementById('status').innerText = 'Ошибка: ' + error.message;
@@ -60,7 +56,6 @@
             }
         });
 
-        // Обработчик успешной отправки
         tg?.onEvent('webAppDataSent', () => {
             console.log('Данные успешно отправлены и приложение закрывается');
         });
