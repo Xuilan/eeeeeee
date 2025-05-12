@@ -33,7 +33,7 @@
                     <span class="icon">🌐</span> ОНЛАЙН: <span class="count">1235</span>
                 </div>
                 <div class="user-info">
-                    <img src="placeholder-avatar.png" alt="User Avatar" class="user-avatar">
+                    <img src="https://via.placeholder.com/40/5a5a5a/ffffff?text=A" alt="User Avatar" class="user-avatar"> <!-- Placeholder image -->
                     <div class="user-details">
                         <p>Привет,</p>
                         <p>USP</p>
@@ -69,94 +69,54 @@
             </div>
 
             <section class="upgrade-section">
-                <div class="upgrade-column select-input-item">
+                <div class="upgrade-column select-input-item-column">
                     <h3 class="column-title">
                         <span class="icon">👇</span> Выберите оружие,<br>которое хотите улучшить
                     </h3>
-                    <div class="item-card selected-input-item">
-                        <img src="placeholder-mp9.png" alt="MP9 Воздушный шлюз" class="item-image">
-                        <div class="item-details">
-                            <p class="item-name">MP9</p>
-                            <p class="item-description">Воздушный шлюз</p>
-                        </div>
-                        <span class="item-price">115.8 ₽</span>
+                    <div class="item-card selected-input-item placeholder">
+                        <p>Выберите предмет из инвентаря</p>
+                        <!-- Selected item details will be loaded here by JS -->
                     </div>
-                    <!-- Placeholder for list of inventory items to choose from -->
-                    <!-- This list would likely be populated by JS based on user inventory -->
-                    <div class="inventory-items-list">
-                        <!-- Item cards would go here -->
-                        <!-- Example:
-                        <div class="item-card small">
-                            <img src="..." alt="..." class="item-image-small">
-                            <div class="item-details-small">
-                                <p class="item-name-small">Glock-18</p>
-                                <p class="item-description-small">Дальний свет</p>
-                            </div>
-                            <span class="item-price-small">38.2 ₽</span>
-                        </div>
-                        -->
-                    </div>
+
+                     <div class="inventory-items-list item-list-small">
+                         <!-- Inventory items will be loaded here by JS -->
+                     </div>
                 </div>
 
                 <div class="upgrade-column upgrade-core">
                     <div class="chance-meter">
                         <!-- Placeholder for the circular meter -->
                         <div class="chance-circle">
-                            <span class="percentage">2.52%</span>
-                            <p class="chance-text">крайне низкий шанс</p>
+                            <span class="percentage">0.00%</span>
+                            <p class="chance-text">выберите предметы</p>
                             <!-- Visual elements for the circle/progress would be done with CSS/SVG -->
                         </div>
                     </div>
-                    <button class="upgrade-button">ПРОКАЧАТЬ!</button>
+                    <button class="upgrade-button" disabled>ПРОКАЧАТЬ!</button>
                     <div class="upgrade-cost">
                         <!-- This might show the cost calculation -->
                     </div>
                 </div>
 
-                <div class="upgrade-column select-output-item">
+                <div class="upgrade-column select-output-item-column">
                     <h3 class="column-title">
                         <span class="icon">👇</span> Выберите оружие,<br>которое хотите получить
                     </h3>
-                    <div class="item-card selected-output-item">
-                         <!-- Rarity Star Icon -->
-                        <span class="rarity-star">★</span>
-                        <img src="placeholder-gloves.png" alt="Водительские перчатки" class="item-image">
-                        <div class="item-details">
-                            <p class="item-name">Водительские перчатки</p>
-                            <p class="item-description">Гоночный зелёный</p>
-                        </div>
-                        <span class="item-price">4738.9 ₽</span>
+                     <div class="item-card selected-output-item placeholder">
+                         <p>Выберите предмет из магазина</p>
+                         <!-- Selected item details will be loaded here by JS -->
                     </div>
-                    <!-- Placeholder for list of target items to choose from -->
-                    <!-- This list would likely be populated by JS from market data -->
-                    <div class="target-items-list">
-                        <!-- Item cards would go here -->
+
+                    <div class="target-items-list item-list-small">
+                        <!-- Marketplace items will be loaded here by JS -->
                     </div>
                 </div>
             </section>
 
             <section class="inventory-section">
-                <h3>МОИ ПРЕДМЕТЫ (6)</h3>
-                <div class="item-list inventory-list">
-                    <!-- Placeholder for inventory items -->
-                    <!-- Example item card -->
-                    <div class="item-card small">
-                        <img src="placeholder-aug.png" alt="AUG Аристократ" class="item-image-small">
-                        <div class="item-details-small">
-                            <p class="item-name-small">AUG</p>
-                            <p class="item-description-small">Аристократ</p>
-                        </div>
-                        <span class="item-price-small">38.2 ₽</span>
-                    </div>
-                     <div class="item-card small">
-                        <img src="placeholder-mp9.png" alt="MP9 Воздушный шлюз" class="item-image-small">
-                        <div class="item-details-small">
-                            <p class="item-name-small">MP9</p>
-                            <p class="item-description-small">Воздушный шлюз</p>
-                        </div>
-                        <span class="item-price-small">115.8 ₽</span>
-                    </div>
-                    <!-- Add more inventory items as needed -->
+                <h3>МОИ ПРЕДМЕТЫ (<span id="inventory-count">0</span>)</h3>
+                <div id="inventory-list" class="item-list">
+                    <!-- Inventory items will be loaded here by JS -->
                 </div>
             </section>
 
@@ -169,7 +129,7 @@
                             <!-- Add rarity options -->
                         </select>
                     </div>
-                     <div class="filter-group">
+                     <div class="filter-group price-filter">
                         <label for="price-filter-from">Цена</label>
                         <input type="number" id="price-filter-from" value="0" placeholder="от" class="price-input">
                         <span>₽ до</span>
@@ -179,24 +139,12 @@
                     </div>
                     <!-- Add more filter options like sort etc. -->
                      <div class="filter-group">
-                         <button>Цена <span class="sort-icon">⇅</span></button>
+                         <button class="sort-button">Цена <span class="sort-icon">⇅</span></button>
                          <!-- Add other sort buttons -->
                      </div>
                 </div>
-                <div class="item-list marketplace-list">
-                    <!-- Placeholder for marketplace items -->
-                    <!-- Example item card -->
-                     <div class="item-card small">
-                         <!-- Rarity Star Icon -->
-                        <span class="rarity-star">★</span>
-                        <img src="placeholder-awp.png" alt="StatTrak™ AWP" class="item-image-small">
-                        <div class="item-details-small">
-                            <p class="item-name-small">StatTrak™ AWP</p>
-                            <p class="item-description-small">Распространение</p>
-                        </div>
-                        <span class="item-price-small">4699 ₽</span>
-                    </div>
-                    <!-- Add more marketplace items as needed -->
+                <div id="marketplace-list" class="item-list">
+                    <!-- Marketplace items will be loaded here by JS -->
                 </div>
             </section>
 
