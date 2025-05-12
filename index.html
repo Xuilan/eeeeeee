@@ -58,6 +58,7 @@
 
         tg?.onEvent('webAppDataSent', () => {
             console.log('Данные успешно отправлены и приложение закрывается');
+            document.getElementById('status').innerText = 'Данные успешно отправлены!';
         });
     </script>
 </body>
