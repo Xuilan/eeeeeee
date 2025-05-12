@@ -1,0 +1,695 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1c1c27; /* Dark background */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll; /* Allow scrolling */
+}
+
+.app-container {
+    max-width: 1200px; /* Or adjust as needed */
+    margin: 0 auto;
+    padding: 0 20px; /* Add some padding on sides */
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #e74c3c; /* Reddish color */
+}
+
+.logo p {
+    margin: 0;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: 20px;
+}
+
+.main-nav li {
+    margin-right: 15px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.main-nav a.active {
+    color: #ffffff;
+    border-bottom: 2px solid #e74c3c; /* Highlight active link */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.online-count {
+    font-size: 14px;
+    color: #aaa;
+    margin-right: 20px;
+}
+
+.online-count .count {
+    color: #2ecc71; /* Green online count */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    background-color: #333; /* Background for user info */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #5a5a5a; /* Placeholder background */
+}
+
+.user-details p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.user-balance {
+    color: #2ecc71; /* Green balance */
+}
+
+.balance-plus {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #2ecc71;
+    cursor: pointer;
+}
+
+
+/* Promo Banner Styles */
+.promo-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #4e2c5e, #2d3e72); /* Example gradient */
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.promo-left {
+    display: flex;
+    align-items: center;
+}
+
+.promo-badge {
+    background-color: #e74c3c; /* Red badge */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.promo-text {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.promo-center {
+    text-align: center;
+}
+
+.promo-code-area {
+    background-color: #007bff; /* Blue color */
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block; /* To make background fit content */
+    margin-bottom: 5px;
+}
+
+.promo-label {
+    font-size: 12px;
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+.site-slogan {
+    font-size: 28px;
+    margin: 5px 0 0 0;
+    color: #fff; /* Adjust color for visibility on gradient */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.promo-right {
+    text-align: right;
+}
+
+.timer {
+    background-color: #c0392b; /* Darker red */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.time-value {
+    color: #fff;
+}
+
+.time-total {
+     color: #eee;
+}
+
+
+/* Upgrade Section Styles */
+.upgrade-section {
+    display: flex;
+    gap: 20px; /* Space between columns */
+    margin-top: 20px;
+}
+
+.upgrade-column {
+    flex: 1; /* Distribute space equally */
+    background-color: #2a2a3a; /* Darker background for columns */
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content vertically in columns */
+}
+
+.select-input-item-column,
+.select-output-item-column {
+     align-items: flex-start; /* Align text to start */
+     flex: 1; /* Equal width */
+}
+
+
+.upgrade-core {
+    flex: 0 0 250px; /* Fixed width for the center column */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically */
+}
+
+
+.column-title {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%; /* Make title take full width */
+}
+.select-input-item-column .column-title,
+.select-output-item-column .column-title {
+     text-align: left; /* Align titles left in side columns */
+}
+
+
+/* Item Card Styles (General) */
+.item-card {
+    background-color: #3a3a4a; /* Darker background for cards */
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.item-card:hover {
+    border-color: #5a5a6a;
+}
+
+.item-card.selected {
+    border-color: #2ecc71; /* Green border for selected */
+    background-color: #334433; /* Slightly greener background */
+}
+
+/* Styles for large selected items in upgrade section */
+.upgrade-section .item-card {
+     width: 100%; /* Take full width of the column */
+     display: flex;
+     align-items: center;
+}
+
+.upgrade-section .item-card img {
+    width: 80px; /* Larger images */
+    height: auto;
+    margin-right: 15px;
+}
+
+.upgrade-section .item-card .item-details {
+     flex-grow: 1; /* Take available space */
+}
+
+.upgrade-section .item-card .item-name {
+    font-size: 16px;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.upgrade-section .item-card .item-description {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+}
+
+.upgrade-section .item-card .item-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2ecc71; /* Green price */
+    white-space: nowrap; /* Prevent price from wrapping */
+}
+
+.item-card.placeholder {
+     text-align: center;
+     color: #aaa;
+     font-size: 14px;
+     min-height: 100px; /* Give some height */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #3a3a4a;
+     border: 1px dashed #555; /* Dashed border for placeholder */
+     cursor: default;
+}
+.item-card.placeholder:hover {
+    border-color: #555; /* No hover effect for dashed border */
+}
+
+
+/* Styles for small items in lists (inventory/marketplace) */
+.item-list-small {
+    width: 100%; /* Take full width of the column */
+    max-height: 300px; /* Limit height and make it scrollable */
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+/* Custom Scrollbar (optional) */
+.item-list-small::-webkit-scrollbar {
+    width: 8px;
+}
+.item-list-small::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+}
+.item-list-small::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+.item-list-small::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+
+.item-list-small .item-card {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 5px;
+}
+
+.item-list-small .item-image-small {
+    width: 50px; /* Smaller images */
+    height: auto;
+    margin-right: 10px;
+}
+
+.item-list-small .item-details-small {
+     flex-grow: 1;
+}
+
+.item-list-small .item-name-small {
+    font-size: 13px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.item-list-small .item-description-small {
+    font-size: 10px;
+    color: #aaa;
+    margin: 0;
+}
+
+.item-list-small .item-price-small {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2ecc71; /* Green price */
+    white-space: nowrap;
+}
+
+/* Rarity Star */
+.rarity-star {
+    color: gold; /* Or specific colors for different rarities */
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+
+/* Chance Meter Styles */
+.chance-meter {
+    width: 180px; /* Size of the circle container */
+    height: 180px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.chance-circle {
+     width: 100%;
+     height: 100%;
+     border-radius: 50%;
+     background: conic-gradient(#2ecc71 0%, #f1c40f 50%, #e74c3c 100%); /* Example gradient */
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     overflow: hidden; /* Hide gradient outside the circle */
+}
+
+.chance-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Inner circle size */
+    height: 80%;
+    border-radius: 50%;
+    background-color: #2a2a3a; /* Inner background */
+    z-index: 1;
+}
+
+.chance-meter .percentage {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 2; /* Ensure text is above inner circle */
+    margin-bottom: 5px;
+}
+
+.chance-meter .chance-text {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+    z-index: 2; /* Ensure text is above inner circle */
+}
+
+
+/* Upgrade Button */
+.upgrade-button {
+    background-color: #3498db; /* Blue button */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make button full width of center column */
+    max-width: 200px; /* Limit max width */
+    margin-top: 10px;
+}
+
+.upgrade-button:hover:not(:disabled) {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+.upgrade-button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+
+/* Inventory and Marketplace Section Styles */
+.inventory-section,
+.marketplace-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.inventory-section h3,
+.marketplace-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.item-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to new line */
+    gap: 10px; /* Space between items */
+}
+
+/* Styles for small item cards in these lists (re-using) */
+.item-list .item-card.small {
+    background-color: #3a3a4a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    width: calc(20% - 10px); /* Example: 5 items per row with gap */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Stack image and details */
+    align-items: center;
+    text-align: center;
+}
+.item-list .item-card.small:hover {
+     border-color: #5a5a6a;
+}
+
+.item-list .item-card.small.selected {
+    border-color: #2ecc71;
+    background-color: #334433;
+}
+
+
+.item-list .item-image-small {
+    width: 100%; /* Image takes full card width */
+    max-width: 80px; /* Limit max size */
+    height: auto;
+    margin-bottom: 5px;
+    margin-right: 0; /* Remove right margin */
+}
+
+.item-list .item-details-small {
+    flex-grow: 0; /* Don't grow */
+    width: 100%; /* Take full width */
+}
+
+.item-list .item-name-small {
+    font-size: 12px;
+    margin: 0;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if name is too long */
+}
+
+.item-list .item-description-small {
+    font-size: 9px;
+    color: #aaa;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-list .item-price-small {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2ecc71;
+    margin-top: 5px;
+}
+
+.item-list .item-card.small .rarity-star {
+    font-size: 1em;
+    align-self: flex-start; /* Align star to the left within the card */
+    margin-bottom: 2px;
+}
+
+
+/* Filter Bar Styles */
+.filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between filter groups */
+    margin-bottom: 15px;
+    background-color: #3a3a4a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.filter-group label {
+    margin-right: 5px;
+    color: #ccc;
+}
+
+.filter-bar select,
+.filter-bar input[type="number"],
+.filter-bar button {
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #2a2a3a;
+    color: #fff;
+    font-size: 13px;
+}
+
+.filter-bar select {
+    cursor: pointer;
+}
+
+.filter-bar input[type="number"] {
+     width: 60px; /* Adjust width */
+}
+
+.filter-bar .price-filter span {
+    margin: 0 5px;
+    color: #ccc;
+}
+
+.filter-bar button {
+    background-color: #555;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.filter-bar button:hover {
+    background-color: #666;
+}
+
+.filter-bar .search-button {
+    background-color: #007bff; /* Blue search button */
+    margin-left: 5px;
+}
+.filter-bar .search-button:hover {
+    background-color: #0056b3;
+}
+
+.filter-bar .sort-button {
+    display: flex;
+    align-items: center;
+}
+.filter-bar .sort-icon {
+    margin-left: 5px;
+}
+
+
+/* Telegram Web App specific styles (optional) */
+/* If needed, you can add styles here based on WebApp properties */
+
+
+/* Responsive adjustments (simple) */
+@media (max-width: 900px) {
+    .upgrade-section {
+        flex-direction: column; /* Stack columns on smaller screens */
+    }
+    .upgrade-column {
+        flex: none; /* Remove flex grow */
+        width: 100%; /* Take full width */
+    }
+     .upgrade-core {
+         flex: none;
+         width: 100%; /* Take full width */
+         align-items: center;
+     }
+    .upgrade-button {
+        max-width: 100%; /* Button takes full width */
+    }
+     .item-list .item-card.small {
+         width: calc(33.33% - 7px); /* 3 items per row */
+     }
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .main-nav ul {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .header-right {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+     .promo-banner {
+         flex-direction: column;
+         text-align: center;
+     }
+     .promo-left, .promo-center, .promo-right {
+         width: 100%;
+         text-align: center;
+         margin-bottom: 10px;
+     }
+     .promo-left { align-items: center; justify-content: center;}
+     .promo-badge { margin-right: 10px; }
+
+    .item-list .item-card.small {
+         width: calc(50% - 5px); /* 2 items per row */
+     }
+    .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+     .filter-group {
+         width: 100%;
+         justify-content: space-between; /* Spread out elements if needed */
+     }
+      .filter-bar input[type="number"] { width: 80px; }
+}
